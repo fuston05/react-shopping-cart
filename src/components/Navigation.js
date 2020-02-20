@@ -8,6 +8,7 @@ import '../sass/Navigation.scss';
 
 const Navigation = () => {
   const {cart}= useContext(CartContext);
+  
 	return (
 		<div className="navigation">
 			<NavLink to="/">Products</NavLink>
