@@ -6,12 +6,19 @@
   margin-bottom: 40px;
   font-size: 1.2rem;
   width: 100%;
+  @media only screen and (max-width: 420px){
+    justify-content: center;
+    padding: 0 25px;
+  }
 
 	background: #141618;
 	a {
 		color: white;
 		text-decoration: none;
-		padding: 30px 20px;
+    padding: 30px 20px;
+    @media only screen and (max-width: 420px){
+
+    }
 
 		span {
 			display: inline-block;

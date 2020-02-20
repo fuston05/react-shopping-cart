@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 
-import {CartContext} from '../contexts/CartContext';
+import { CartContext } from '../contexts/CartContext';
 
 // Components
 import Item from './ShoppingCartItem';
@@ -9,26 +9,26 @@ import Item from './ShoppingCartItem';
 import '../sass/ShoppingCart.scss';
 
 const ShoppingCart = () => {
-  const {cart}= useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
-	const getCartTotal = () => {
-		return cart.reduce((acc, value) => {
-			return acc + value.price;
-		}, 0).toFixed(2);
-	};
+  const getCartTotal = () => {
+    return cart.reduce((acc, value) => {
+      return acc + value.price;
+    }, 0).toFixed(2);
+  };
 
-	return (
-		<div className="shopping-cart">
-			{cart.map(item => (
-				<Item id= {item.id} key={item.id} {...item} />
-			))}
+  return (
+    <div className="shopping-cart">
+      {cart.map(item => (
+        <Item id={item.id} key={item.id} {...item} />
+      ))}
 
-			<div className="shopping-cart__checkout">
-				<p>Total: ${getCartTotal()}</p>
-				<button>Checkout</button>
-			</div>
-		</div>
-	);
+      <div className="shopping-cart__checkout">
+        <p>Total: ${getCartTotal()}</p>
+        <button>Checkout</button>
+      </div>
+    </div>
+  );
 };
 
 export default ShoppingCart;

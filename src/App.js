@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import data from './data';
 
-import { useLocalStorage } from './hooks/useLocalStorage';
 
 import { ProductContext } from './contexts/ProductContext';
 import { CartContext } from './contexts/CartContext';
@@ -19,27 +19,23 @@ function App() {
   const [cart, setCart] = useLocalStorage('Cart', []);
   const [products] = useState(data);
 
-  console.log('cart onload:', cart);
-
   const addItem = item => {
     // add the given item to the cart
     let isDuplicate = false;
     cart.forEach(ele => {
       if (ele.id === item.id) { //if item is already in cart, stop duplicates
         isDuplicate = true;
-        alert(`You already have "${item.title}" in you cart`);
+        alert(`You already have "${item.title}" in you cart, limit one per customer!`);
       }//end if
     })
-    if(!isDuplicate){
+    if (!isDuplicate) {
       setCart([...cart, item]);
     }
-
   };//end addItem
 
   const removeItem = id => {
     const newArr = cart.filter(item => item.id !== id);
     setCart(newArr);
-    console.log('removeItem id: ', id);
   };//end removeItem
 
   return (

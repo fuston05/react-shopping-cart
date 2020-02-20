@@ -4,7 +4,11 @@
   transition: 0.2s ease-in-out;
   min-width: 225px;
 	width: 20%;
-	margin: 30px;
+  margin: 30px;
+  
+  @media only screen and (max-width: 570px){
+    width: 80%;
+  }
 
 	&:hover {
 		box-shadow: 0px 5px 37px -22px rgba(0, 0, 0, 1);
@@ -16,12 +20,18 @@
 
 	.title {
 		font-weight: bold;
-		margin: 10px 0 0 25px;
+    margin: 10px 0 0 25px;
+    @media only screen and (max-width: 570px){
+      font-size: calc(+1rem);
+    }
 	}
 
 	.price {
 		margin-left: 25px;
-		padding: 5px 0;
+    padding: 5px 0;
+    @media only screen and (max-width: 570px){
+      font-size: calc(+1rem);
+    }
 	}
 
 	img {
@@ -40,7 +50,10 @@
 		transition: 0.15s ease-in-out;
 		margin: 10px 0;
 		color: lightcoral;
-		margin-left: 25px;
+    margin-left: 25px;
+    @media only screen and (max-width: 570px){
+      font-size: calc(+1rem);
+    }
 
 		&:hover {
 			cursor: pointer;
