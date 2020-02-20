@@ -11,6 +11,7 @@ import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 
 //styles
+import './sass/global.scss';
 
 function App() {
   const [products] = useState(data);

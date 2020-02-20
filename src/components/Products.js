@@ -5,6 +5,9 @@ import {ProductContext} from '../contexts/ProductContext';
 // Components
 import Product from './Product';
 
+//styles
+import '../sass/Products.scss';
+
 const Products = () => {
   const {products, addItem} = useContext(ProductContext);
 

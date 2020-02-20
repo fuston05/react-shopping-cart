@@ -1,5 +1,8 @@
 import React from 'react';
 
+//styles
+import '../sass/Product.scss';
+
 const Product = props => {
 	return (
 		<div className="product">

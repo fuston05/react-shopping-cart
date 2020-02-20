@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 import {CartContext} from '../contexts/CartContext';
 
+//styles
+import '../sass/Navigation.scss';
+
 const Navigation = () => {
   const {cart}= useContext(CartContext);
 	return (

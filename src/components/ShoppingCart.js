@@ -5,6 +5,9 @@ import {CartContext} from '../contexts/CartContext';
 // Components
 import Item from './ShoppingCartItem';
 
+//styles
+import '../sass/ShoppingCart.scss';
+
 const ShoppingCart = () => {
   const {cart}= useContext(CartContext);
 
