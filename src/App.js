@@ -16,30 +16,36 @@ import ShoppingCart from './components/ShoppingCart';
 import './sass/global.scss';
 
 function App() {
-  const [cart, setCart]= useLocalStorage('Cart', []);
+  const [cart, setCart] = useLocalStorage('Cart', []);
   const [products] = useState(data);
-  // const [cart, setCart] = useState([]);
 
-  console.log('data onload:', data);
+  console.log('cart onload:', cart);
 
   const addItem = item => {
     // add the given item to the cart
-    setCart([
-      ...cart,
-      item
-    ]);
+    let isDuplicate = false;
+    cart.forEach(ele => {
+      if (ele.id === item.id) { //if item is already in cart, stop duplicates
+        isDuplicate = true;
+        alert(`You already have "${item.title}" in you cart`);
+      }//end if
+    })
+    if(!isDuplicate){
+      setCart([...cart, item]);
+    }
+
   };//end addItem
 
-  const removeItem= id => {
-    const newArr= cart.filter( item => item.id !== id  );
-    setCart( newArr );
+  const removeItem = id => {
+    const newArr = cart.filter(item => item.id !== id);
+    setCart(newArr);
     console.log('removeItem id: ', id);
   };//end removeItem
 
   return (
     <div className="App">
       <ProductContext.Provider value={{ products, addItem }}>
-        <CartContext.Provider value={{cart, removeItem}}>
+        <CartContext.Provider value={{ cart, removeItem }}>
           <Navigation cart={cart} />
 
           {/* Routes */}
